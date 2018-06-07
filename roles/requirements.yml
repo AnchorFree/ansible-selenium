@@ -1,0 +1,4 @@
+---
+- src: https://github.com/AnchorFree/ansible-role-kernel
+  version: 1.0.1
+  name: manala.kernel

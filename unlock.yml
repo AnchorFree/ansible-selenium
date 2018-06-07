@@ -1,0 +1,7 @@
+- hosts: all
+  gather_facts: False
+  pre_tasks:
+#    - name: Unlock repository
+#      local_action: shell git-crypt unlock {{ git_crypt_key_path }}
+    - name: Unlock repository common
+      local_action: shell cd roles/common/ && git-crypt unlock {{ git_crypt_key_path }}
