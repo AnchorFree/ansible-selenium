@@ -1,0 +1,5 @@
+---
+- name: "install selenium standalone chrome"
+  template:
+    src: selenium.yml
+    dest: /etc/docker-compose/

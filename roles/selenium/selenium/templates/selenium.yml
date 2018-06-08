@@ -1,0 +1,12 @@
+---
+version: '2'
+services:
+  selenium:
+    image: selenium/standalone-chrome:{{ standalone_chrome_version }}
+    container_name: selenium
+    restart: always
+    network_mode: "host"
+    environment:
+      - TZ=US/Pacific
+    volumes:
+      - "/dev/shm:/dev/shm"

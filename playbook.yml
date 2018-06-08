@@ -38,6 +38,7 @@
 
   roles:
     - manala.kernel
+    - common/facts
     - common/syslog
     - common/tmp-exec
     - common/hostname
@@ -50,5 +51,5 @@
     - common/docker
     - common/users
     - common/ansible-tower
-
-
+    - selenium/selenium
+    - common/docker-updater
