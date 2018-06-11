@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
         docker_enable_fluentd: false,
         debugging_mode: true
       }
-      ansible.verbose = true
+#      ansible.verbose = true
     end
   end
 end

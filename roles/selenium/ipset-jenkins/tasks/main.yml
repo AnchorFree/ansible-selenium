@@ -1,0 +1,8 @@
+---
+- name: install ipset-from-ct files
+  copy:
+    src: "{{ item }}"
+    dest: /etc/consul-templater/
+  with_items:
+    - ipset-jenkins.ctpl
+    - ipset-jenkins.conf

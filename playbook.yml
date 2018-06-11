@@ -20,6 +20,8 @@
     - vars/manala.kernel.yml
 
   vars:
+    consul_templater_extra_volumes:
+      - "/etc/af:/output/af"
     logging_team_name: "elite"
     logging_team_port: "24003"
     users:
@@ -51,5 +53,10 @@
     - common/docker
     - common/users
     - common/ansible-tower
+    - common/monitoring
+    - common/consul-templater
+    - selenium/ipset-jenkins
     - selenium/selenium
     - common/docker-updater
+    - common/ipset
+    - common/iptables

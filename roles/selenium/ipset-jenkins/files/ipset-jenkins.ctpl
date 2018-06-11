@@ -1,0 +1,7 @@
+create jenkins_new hash:ip
+flush jenkins_new
+
+{{ range $n := nodes }}{{ with $start := $n.Node | printf "%.7s" }}{{ if eq "jenkins" $start }}add jenkins_new {{ $n.Address }}{{ "\n" }}{{ end }}{{ end }}{{ end }}
+
+swap jenkins jenkins_new
+destroy jenkins_new

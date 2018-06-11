@@ -1,0 +1,14 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -d 172.17.0.1/32 -j ACCEPT -m comment --comment "docker bridge"
+-A INPUT -p tcp -m state --state NEW -m set --match-set af_admin src -m multiport --dports 22,5525,13012 -j ACCEPT -m comment --comment "ssh"
+-A INPUT -p tcp -m state --state NEW -m set --match-set af_monitoring src -m multiport --dports 9100,9102,9126,8484,9121,9122,8035,9145:9148,9115 -j ACCEPT -m comment --comment "monitoring"
+-A INPUT -p tcp -m state --state NEW -m set --match-set jenkins src -m multiport --dports 4444 -j ACCEPT -m comment --comment "Selenium access for jenkins agents"
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
